@@ -1,5 +1,5 @@
 <?php
-define('DB_HOST', 'localshot' );
+define('DB_HOST', 'localhost' );
 define('DB_USER', 'joseph');
 define('DB_PASS', 'guesswho');
 define('DB_NAME', 'mvc');
