@@ -1,4 +1,8 @@
 <?php
+define('DB_HOST', 'localshot' );
+define('DB_USER', 'joseph');
+define('DB_PASS', 'guesswho');
+define('DB_NAME', 'mvc');
 //app root
 define('APPROOT', dirname(dirname(__FILE__)));
 

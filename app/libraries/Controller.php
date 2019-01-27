@@ -1,6 +1,4 @@
 <?php
-
-
   /*
    * Base Controller
    * Loads the models and views
@@ -26,13 +24,6 @@
       }
     }
   }
-
-
-//load view
-
-
-
-
 
 
  ?>
