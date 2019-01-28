@@ -29,12 +29,12 @@ class Database {
     }
     // Prepare statement with query
     public function query($sql){
-        $this ->stmt = $this-> dbh->prepare($sql);
+        $this ->stmt = $this->dbh->prepare($sql);
 
     }
 
     public function bind($param, $value, $type = null){
-        if(is_null(type)){
+        if(is_null($type)){
             switch(true){
                 case is_int($value):
                     $type = PDO::PARAM_INT;
@@ -54,23 +54,25 @@ class Database {
         $this->stmt->bindValue($param, $value, $type);
 
         //perform prepare staemnt
-
-
         }
         public function execute(){
             return $this-> stmt->execute();
 
     }
     // get results set as array of objects
-
     public function resultsSet(){
         $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
-
+    // Get single record as object
     public function single(){
         $this->execute();
         return $this ->stmt->fetch(PDO::FETCH_OBJ);
+    }
+
+    // Get row count
+    public function rowCount(){
+      return $this->stmt->rowCount();
     }
 
 
