@@ -2,7 +2,7 @@
 define('DB_HOST', 'localhost' );
 define('DB_USER', 'joseph');
 define('DB_PASS', 'guesswho');
-define('DB_NAME', 'mvc');
+define('DB_NAME', 'shareposts');
 //app root
 define('APPROOT', dirname(dirname(__FILE__)));
 

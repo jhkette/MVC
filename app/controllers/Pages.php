@@ -1,14 +1,13 @@
 <?php
   class Pages extends Controller {
-    public function __construct(){
-      $this->postModel = $this->model('Post');
-    }
+
 
     public function index(){
-    $posts = $this->postModel->getPosts();
+
       $data = [
-        'title' => 'Welcome',
-        'posts' => $posts
+        'title' => 'Shareposts',
+        'description' => 'Simple shareposts app'
+
 
       ];
 
@@ -17,7 +16,8 @@
 
     public function about(){
       $data = [
-        'title' => 'About Us'
+        'title' => 'About Us',
+        'description' => 'App to share posts'
       ];
 
       $this->view('pages/about', $data);
