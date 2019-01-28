@@ -27,7 +27,7 @@ class Database {
         echo $this->error;
       }
     }
-
+    // Prepare statement with query
     public function query($sql){
         $this ->stmt = $this-> dbh->prepare($sql);
 
