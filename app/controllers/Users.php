@@ -1,8 +1,8 @@
 <?php
   class Users extends Controller {
-    public function __construct(){
-
-    }
+      public function __construct(){
+        $this->userModel = $this->model('User');
+      }
 
     public function register(){
       // Check for POST
@@ -27,7 +27,12 @@
         // Validate Email
         if(empty($data['email'])){
           $data['email_err'] = 'Pleae enter email';
-        }
+      } else{
+          //check email
+          if($this -> userModel ->findUserbyEmail($data['email'])) {
+              $data['email_err'] = 'this email is taken';
+          }
+      }
 
         // Validate Name
         if(empty($data['name'])){
