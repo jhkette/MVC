@@ -152,8 +152,5 @@
         else{
             reirect('posts');
         }
-
     }
-
-
   }
