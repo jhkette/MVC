@@ -1,5 +1,5 @@
 // add images to Posts // you can just add the file path to the database // sanitize using realpath
-// add events as a separate functionliaty
+// add events as a separate functionality
 // delete user
 // change password
 // add register user (an admin feature)
