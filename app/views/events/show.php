@@ -9,9 +9,9 @@
 
 <?php if($data['event']->user_id == $_SESSION['user_id']) : ?>
   <hr>
-  <a href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['event']->id; ?>" class="btn btn-dark">Edit</a>
+  <a href="<?php echo URLROOT; ?>/events/edit/<?php echo $data['event']->id; ?>" class="btn btn-dark">Edit</a>
 
-  <form class="pull-right" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['event']->id; ?>" method="post">
+  <form class="pull-right" action="<?php echo URLROOT; ?>/events/delete/<?php echo $data['event']->id; ?>" method="post">
     <input type="submit" value="Delete" class="btn btn-danger">
   </form>
 <?php endif; ?>
