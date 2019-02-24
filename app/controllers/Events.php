@@ -136,6 +136,27 @@
       }
     }
 
+    public function delete($id){
+      if($_SERVER[REQUEST_METHOD] == 'POST'){
+          $event = $this->eventModel->getEventsById($id);
+
+          // Check for owner
+          if($event->user_id != $_SESSION['user_id']){
+            redirect('events');
+          }
+          if($this->eventModel->deleteEvent($id)){
+              flash('post_message', 'Event removed');
+              redirect('events');
+          }
+          else{
+              die('something went wrong');
+          }
+      }
+      else{
+          reirect('events');
+      }
+  }
+
 
     
 }
