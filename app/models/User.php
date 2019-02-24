@@ -70,6 +70,15 @@ public function register($data){
 
 
     }
+
+    public function getUsers(){
+      $this->db->query('SELECT * FROM users');
+      // Bind value
+      $results = $this->db->resultSet();
+
+      return $results;
+    }
+
   }
 
 

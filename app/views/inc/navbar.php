@@ -9,6 +9,12 @@
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo URLROOT; ?>">Home</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="<?php echo URLROOT; ?>/posts">Posts</a>
+          </li>
+          <li class="nav-item active">
+          <a class="nav-link" href="<?php echo URLROOT; ?>/events">Events</a>
+          </li>
 
         </ul>
 

@@ -20,9 +20,6 @@
       $this->view('events/index', $data);
     }
 
-
-
-
     public function show($id){
       $event = $this->eventModel->getEventsById($id);
       $user = $this->userModel->getUserById($event->user_id);
@@ -155,8 +152,5 @@
       else{
           reirect('events');
       }
-  }
-
-
-    
+  }    
 }

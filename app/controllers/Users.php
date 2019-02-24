@@ -4,6 +4,19 @@
       $this->userModel = $this->model('User');
     }
 
+    public function index(){
+      if(!isLoggedIn()){
+        redirect('users/login');
+      }
+      // Get posts
+      $users = $this->userModel->getUsers();
+
+      $data = [
+        'users' => $users
+      ];
+      $this->view('users/index', $data);
+    }
+
     public function register(){
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -173,6 +186,16 @@
       unset($_SESSION['user_name']);
       session_destroy();
       redirect('users/login');
+    }
+
+    public function show($id){
+      $user = $this->userModel->getUserById($id);
+
+      $data = [
+        'user'=> $user,
+      ];
+
+      $this->view('users/show', $data);
     }
 
 
