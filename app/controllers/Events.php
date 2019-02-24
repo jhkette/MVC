@@ -5,18 +5,35 @@
         redirect('users/login');
       }
 
-      $this->postModel = $this->model('Event');
+      $this->eventModel = $this->model('Event');
       $this->userModel = $this->model('User');
     }
 
     public function index(){
       // Get posts
-      $events = $this->postModel->getEvents();
+      $events = $this->eventModel->getEvents();
 
       $data = [
         'events' => $events
       ];
-       print_r($data);
+      print_r($data);
       $this->view('events/index', $data);
     }
+
+
+
+
+    public function show($id){
+      $event = $this->eventModel->getEventsById($id);
+      $user = $this->userModel->getUserById($event->user_id);
+
+      $data = [
+        'event' => $event,
+        'user' => $user
+      ];
+
+      $this->view('events/show', $data);
+    }
+
+    
 }

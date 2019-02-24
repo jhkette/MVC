@@ -7,13 +7,47 @@
     }
 
     public function getEvents(){
-      $this->db->query('SELECT * FROM events
+      $this->db->query('SELECT *,
+                       -- create an alias asthey are called the same thing
+                        events.id as eventId,
+                        users.id as userId,
+                        -- create an alias as they are called the same thing
+                        events.created_at as eventCreated,
+                        users.created_at as userCreated
+                        FROM events
                         -- we join users in the tabel here.
-
+                        INNER JOIN users
+                        ON events.user_id = users.id
+                        ORDER BY events.created_at DESC
                         ');
 
       $results = $this->db->resultSet();
-      print_r($results);
+
       return $results;
     }
+
+
+
+    public function getEventsById($id){
+      $this->db->query('SELECT * FROM events WHERE id = :id');
+      $this->db->bind(':id', $id);
+
+      $row = $this->db->single();
+
+      return $row;
+
+  }
+
+
 }
+
+// events.id as eventsId,
+// users.id as userId,
+// -- create an alias as they are called the same thing
+// events.created_at as eventCreated,
+// users.created_at as userCreated
+// FROM events
+// -- we join users in the tabel here.
+// INNER JOIN users
+// ON events.user_id = users.id
+// ORDER BY events.created_at DESC
